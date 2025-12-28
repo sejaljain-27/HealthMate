@@ -1,73 +1,116 @@
-# Welcome to your Lovable project
+# HealthMate – Adaptive Agentic Fitness Coach
 
-## Project info
+## Problem Definition
+Most fitness applications assume perfect consistency from users. In reality, people miss workouts, feel low energy, and struggle with motivation. Existing systems penalize failure instead of adapting to it, leading to burnout and abandonment.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+HealthMate addresses this gap by introducing an agentic fitness system that adapts intelligently to user behavior rather than enforcing rigid plans.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Target Users
+- Students with irregular schedules
+- Working professionals
+- Beginners struggling with fitness consistency
+- Users prone to burnout or drop-off
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Why an Agentic System?
+Fitness adherence is a dynamic human behavior problem. Static rule-based systems fail to respond to uncertainty, fatigue, and inconsistency.
 
-Changes made via Lovable will be committed automatically to this repo.
+HealthMate uses an agentic approach where autonomous agents:
+- Observe user behavior
+- Maintain state over time
+- Make decisions independently
+- Explain their reasoning
 
-**Use your preferred IDE**
+This enables human-centric adaptation rather than rigid enforcement.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Agent Roles & Responsibilities
 
-Follow these steps:
+### 1. User State Tracking Agent
+- Tracks energy levels
+- Maintains workout streaks
+- Records missed days
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 2. Decision & Planning Agent
+- Uses ML prediction to estimate workout completion
+- Adjusts intensity automatically
+- Activates recovery modes when needed
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 3. Explainability Agent
+- Explains why decisions were made
+- Provides motivational feedback
+- Builds transparency and trust
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+## System Architecture
+
+Frontend (React)
+- Login / Signup
+- Daily Check-in UI
+- Explainable feedback display
+
+Backend (FastAPI)
+- User authentication
+- State storage (in-memory)
+- Decision orchestration
+
+ML Component
+- Predicts workout completion probability
+- Influences agent decisions
+
+---
+
+## Workflow
+
+1. User logs in
+2. User performs daily check-in
+3. Backend updates user state
+4. ML model predicts completion likelihood
+5. Decision agent adjusts plan
+6. Explainability agent returns feedback
+7. Cycle repeats daily
+
+---
+
+## Unique Features
+
+- Failure-Aware Planning
+- Autonomous Intensity Adjustment
+- Explainable AI Feedback
+- Human-centric fitness design
+- Adaptive behavior modeling
+
+---
+
+## Setup Instructions
+
+### Backend
+```bash
+cd backend
+pip install -r requirements.txt
+uvicorn main:app --reload
+## frontend
 npm run dev
-```
 
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+###flow chart
+User Login / Signup
+        ↓
+Daily Check-in (Energy, Completion)
+        ↓
+User State Update (Backend Memory)
+        ↓
+ML Predictor (Completion Probability)
+        ↓
+Decision Agent
+  ├─ Reduce Intensity
+  ├─ Maintain Plan
+  └─ Recovery Mode
+        ↓
+Explainable Feedback to User
+        ↓
+Next Day Loop
