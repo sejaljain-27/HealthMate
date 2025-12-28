@@ -94,10 +94,9 @@ ML Component
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
-## frontend
+###frontend
 npm run dev
-
-###flow chart
+##flowchart
 User Login / Signup
         ↓
 Daily Check-in (Energy, Completion)
@@ -114,3 +113,7 @@ Decision Agent
 Explainable Feedback to User
         ↓
 Next Day Loop
+###Working flow chart
+
+<img width="2828" height="7102" alt="Untitled diagram-2025-12-28-084619" src="https://github.com/user-attachments/assets/4814e889-e0e9-4232-bd60-6afc5aea00b4" />
+
