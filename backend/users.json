@@ -1,0 +1,14 @@
+{
+  "users": {
+    "jsejal74@gmail.com": {
+      "name": "sejaljain",
+      "email": "jsejal74@gmail.com",
+      "password": "123456"
+    },
+    "jsejal75@gmail.com": {
+      "name": "sejal3",
+      "email": "jsejal75@gmail.com",
+      "password": "123456"
+    }
+  }
+}
