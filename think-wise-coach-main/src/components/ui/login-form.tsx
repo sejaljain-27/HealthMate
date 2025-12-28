@@ -239,39 +239,15 @@ export function LoginForm({ onLogin, onSignUp }: LoginFormProps) {
   const [emailFocused, setEmailFocused] = useState(false);
   const [passwordFocused, setPasswordFocused] = useState(false);
 
- const handleSubmit = async (e: React.FormEvent) => {
+ const handleSubmit = (e: React.FormEvent) => {
   e.preventDefault();
 
-  try {
-    const res = await fetch("http://127.0.0.1:8000/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
-
-    if (!res.ok) {
-      const err = await res.json();
-      alert(err.detail || "Login failed");
-      return;
-    }
-
-    const data = await res.json();
-
-    onLogin({
-      email: data.user.email,
-      name: data.user.name,
-    });
-  } catch (error) {
-    alert("Backend not reachable");
-    console.error(error);
-  }
+  // ✅ TEMP DEMO LOGIN — ALWAYS WORKS
+  onLogin({
+    email: email || "demo@healthmate.ai",
+    name: "Demo User",
+  });
 };
-
 
   return (
     <div className="relative z-10 w-full max-w-md mx-auto px-6">
